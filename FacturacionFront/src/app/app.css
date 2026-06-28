@@ -1,0 +1,49 @@
+.app-header {
+  background: linear-gradient(135deg, #5b1d6e, #8e1f3a);
+  padding: 22px 30px;
+  color: white;
+  box-shadow: 0 4px 14px rgba(90, 20, 90, 0.3);
+}
+
+.app-header h1 {
+  margin: 0 0 14px 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.app-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 9px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.2s, transform 0.15s;
+}
+
+.app-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.app-nav a.active {
+  background: white;
+  color: #5b1d6e;
+  border-color: white;
+}
+
+main {
+  padding: 24px;
+  background: #f4f1f8;
+  min-height: calc(100vh - 100px);
+}

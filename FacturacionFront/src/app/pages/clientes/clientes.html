@@ -1,0 +1,40 @@
+<h2>Clientes</h2>
+
+<button class="btn-nuevo" (click)="nuevo()">+ Nuevo Cliente</button>
+
+<div class="formulario" *ngIf="mostrarFormulario">
+  <h3>{{ modoEdicion ? '✏️ Editar Cliente' : '➕ Nuevo Cliente' }}</h3>
+  <div class="campo"><label>Nombre</label><input [(ngModel)]="clienteActual.nombre"></div>
+  <div class="campo"><label>Apellido</label><input [(ngModel)]="clienteActual.apellido"></div>
+  <div class="campo"><label>Cédula</label><input [(ngModel)]="clienteActual.cedula"></div>
+  <div class="campo"><label>Dirección</label><input [(ngModel)]="clienteActual.direccion"></div>
+  <div class="campo"><label>Teléfono</label><input [(ngModel)]="clienteActual.telefono"></div>
+  <div class="campo"><label>Email</label><input [(ngModel)]="clienteActual.email"></div>
+  <div class="acciones-form">
+    <button class="btn-guardar" (click)="guardar()">💾 Guardar</button>
+    <button class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th><th>Apellido</th><th>Cédula</th>
+      <th>Dirección</th><th>Teléfono</th><th>Email</th><th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of listaClientes">
+      <td>{{ c.nombre }}</td>
+      <td>{{ c.apellido }}</td>
+      <td>{{ c.cedula }}</td>
+      <td>{{ c.direccion }}</td>
+      <td>{{ c.telefono }}</td>
+      <td>{{ c.email }}</td>
+      <td>
+        <button class="btn-editar" (click)="editar(c)">✏️ Editar</button>
+        <button class="btn-eliminar" (click)="eliminar(c.idCliente)">🗑️ Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

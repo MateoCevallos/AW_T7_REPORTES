@@ -1,0 +1,65 @@
+<h2>Facturas</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Número</th>
+      <th>Fecha</th>
+      <th>Cliente</th>
+      <th>Subtotal</th>
+      <th>IVA</th>
+      <th>Total</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let f of listaFacturas">
+      <tr (click)="verDetalle(f)" style="cursor:pointer">
+        <td>{{ f.numeroFactura }}</td>
+        <td>{{ f.fecha | date:'dd/MM/yyyy' }}</td>
+        <td>{{ f.cliente?.nombre }} {{ f.cliente?.apellido }}</td>
+        <td>${{ f.subtotal }}</td>
+        <td>${{ f.iva }}</td>
+        <td><strong>${{ f.total }}</strong></td>
+        <td>
+          <select [(ngModel)]="f.estado" (change)="cambiarEstado(f, f.estado)" (click)="$event.stopPropagation()">
+            <option value="PENDIENTE">PENDIENTE</option>
+            <option value="PAGADA">PAGADA</option>
+          </select>
+        </td>
+        <td>
+          <button class="btn-pdf" (click)="imprimirFactura(f); $event.stopPropagation()">📄 PDF</button>
+          <button class="btn-eliminar" (click)="eliminar(f.idFactura); $event.stopPropagation()">🗑️ Eliminar</button>
+        </td>
+      </tr>
+
+      <!-- DETALLE EXPANDIBLE -->
+      <tr *ngIf="facturaSeleccionada?.idFactura === f.idFactura">
+        <td colspan="8">
+          <div class="detalle-panel">
+            <h4>Detalle de Factura {{ f.numeroFactura }}</h4>
+            <table class="tabla-detalle">
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th>Precio Unitario</th>
+                  <th>Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let d of f.detalleFacturas">
+                  <td>{{ d.producto?.nombre }}</td>
+                  <td>{{ d.cantidad }}</td>
+                  <td>${{ d.precioUnitario }}</td>
+                  <td>${{ d.subtotalLinea }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

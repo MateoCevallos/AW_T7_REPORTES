@@ -1,0 +1,142 @@
+/* crear-factura.css */
+
+:host {
+  display: block;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f4f1f8;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+h2 {
+  color: #5b1d6e;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+h3 {
+  color: #8e1f3a;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  border-left: 4px solid #b6235b;
+  padding-left: 10px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e1d4ea;
+  margin: 20px 0;
+}
+
+/* Bloques tipo tarjeta */
+div {
+  margin-bottom: 14px;
+}
+
+label {
+  display: inline-block;
+  width: 110px;
+  font-weight: 600;
+  color: #4a1559;
+}
+
+select,
+input[type="number"] {
+  padding: 8px 12px;
+  border: 1px solid #d8c2e0;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 14px;
+  color: #333;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-width: 220px;
+}
+
+select:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #8e1f3a;
+  box-shadow: 0 0 0 3px rgba(142, 31, 58, 0.15);
+}
+
+/* Botones */
+button {
+  background: linear-gradient(135deg, #6a1b9a, #b6235b);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  margin-right: 8px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(106, 27, 154, 0.35);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Tabla de detalle */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(90, 20, 90, 0.08);
+  margin-top: 8px;
+}
+
+table button {
+  background: linear-gradient(135deg, #b6235b, #8e1f3a);
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+table button:hover {
+  box-shadow: 0 4px 10px rgba(182, 35, 91, 0.4);
+}
+
+thead {
+  background: linear-gradient(135deg, #5b1d6e, #8e1f3a);
+}
+
+thead th {
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0e6f5;
+  font-size: 14px;
+  color: #333;
+}
+
+tbody tr:hover {
+  background: #faf5fb;
+}
+
+/* Totales */
+p {
+  font-size: 15px;
+  color: #444;
+  margin: 6px 0;
+}
+
+p b {
+  color: #6a1b9a;
+  font-size: 18px;
+}

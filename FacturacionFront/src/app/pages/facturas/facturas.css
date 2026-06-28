@@ -1,0 +1,118 @@
+h2 {
+  color: #5b1d6e;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(90, 20, 90, 0.08);
+}
+
+thead {
+  background: linear-gradient(135deg, #5b1d6e, #8e1f3a);
+}
+
+thead th {
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0e6f5;
+  font-size: 14px;
+  color: #333;
+}
+
+tbody tr:hover { background: #faf5fb; }
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.badge-pendiente {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.badge-pagada {
+  background: #d1f5e0;
+  color: #1a7a3f;
+}
+
+.btn-eliminar {
+  background: #fdeaea;
+  color: #c0392b;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.btn-eliminar:hover { background: #f9c9c9; }
+
+.btn-pdf {
+  background: linear-gradient(135deg, #5b1d6e, #8e1f3a);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  margin-right: 6px;
+  transition: background 0.2s;
+}
+.btn-pdf:hover { opacity: 0.85; }
+
+select {
+  padding: 4px 8px;
+  border: 1px solid #d9c6e8;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #5b1d6e;
+  cursor: pointer;
+}
+
+.detalle-panel {
+  background: #f9f5fc;
+  border: 1px solid #e1d4ea;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px 0;
+}
+
+.detalle-panel h4 {
+  color: #5b1d6e;
+  margin: 0 0 12px 0;
+  font-size: 15px;
+}
+
+.tabla-detalle {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: none;
+}
+
+.tabla-detalle thead {
+  background: linear-gradient(135deg, #8e1f3a, #5b1d6e);
+}
+
+.tabla-detalle tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ede0f5;
+}

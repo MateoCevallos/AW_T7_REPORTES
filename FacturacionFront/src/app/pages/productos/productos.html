@@ -1,0 +1,35 @@
+<h2>Productos</h2>
+
+<button class="btn-nuevo" (click)="nuevo()">+ Nuevo Producto</button>
+
+<div class="formulario" *ngIf="mostrarFormulario">
+  <h3>{{ modoEdicion ? '✏️ Editar Producto' : '➕ Nuevo Producto' }}</h3>
+  <div class="campo"><label>Nombre</label><input [(ngModel)]="productoActual.nombre"></div>
+  <div class="campo"><label>Descripción</label><input [(ngModel)]="productoActual.descripcion"></div>
+  <div class="campo"><label>Precio</label><input type="number" [(ngModel)]="productoActual.precioUnitario"></div>
+  <div class="campo"><label>Stock</label><input type="number" [(ngModel)]="productoActual.stock"></div>
+  <div class="acciones-form">
+    <button class="btn-guardar" (click)="guardar()">💾 Guardar</button>
+    <button class="btn-cancelar" (click)="cancelar()">Cancelar</button>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th><th>Descripción</th><th>Precio Unitario</th><th>Stock</th><th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of listaProductos">
+      <td>{{ p.nombre }}</td>
+      <td>{{ p.descripcion }}</td>
+      <td>${{ p.precioUnitario }}</td>
+      <td>{{ p.stock }}</td>
+      <td>
+        <button class="btn-editar" (click)="editar(p)">✏️ Editar</button>
+        <button class="btn-eliminar" (click)="eliminar(p.idProducto)">🗑️ Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,89 @@
+<h2>Crear Factura</h2>
+
+<hr>
+
+<!-- CLIENTE -->
+<div>
+  <label>Cliente:</label>
+  <select [(ngModel)]="factura.idCliente">
+    <option [value]="0">Seleccione cliente</option>
+
+    <option *ngFor="let c of clientes" [value]="c.idCliente">
+        {{ c.nombre }} {{ c.apellido }}
+    </option>
+  </select>
+</div>
+
+<hr>
+
+<!-- PRODUCTO -->
+<h3>Agregar Productos</h3>
+
+<div>
+  <label>Producto:</label>
+  <select [(ngModel)]="productoSeleccionado.idProducto">
+    <option [value]="0">Seleccione producto</option>
+
+    <option *ngFor="let p of productos" [value]="p.idProducto">
+        {{ p.nombre }} - ${{ p.precioUnitario }}
+    </option>
+  </select>
+</div>
+
+<div>
+  <label>Cantidad:</label>
+  <input type="number" [(ngModel)]="productoSeleccionado.cantidad">
+</div>
+
+<br>
+
+<button (click)="agregarProducto()">Agregar Producto</button>
+
+<hr>
+
+<!-- 📄 DETALLE FACTURA -->
+<h3>Detalle de Factura</h3>
+
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Precio Unitario</th>
+      <th>Subtotal</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let d of factura.detalleFacturas; let i = index">
+      <td>{{ d.nombre }}</td>
+      <td>{{ d.cantidad }}</td>
+      <td>{{ d.precioUnitario }}</td>
+      <td>{{ d.subtotal }}</td>
+      <td>
+        <button (click)="eliminarProducto(i)">🗑️ Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<!-- 💰 TOTALES -->
+<h3>Totales</h3>
+
+<p>Subtotal: {{ getSubtotal() }}</p>
+<p>IVA (15%): {{ getIVA() }}</p>
+<p><b>Total: {{ getTotal() }}</b></p>
+
+<hr>
+
+<!--  GUARDAR FACTURA -->
+<button (click)="guardarFactura()">
+  Guardar Factura
+</button>
+
+<button (click)="generarPDF()">
+  📄 Generar PDF
+</button>
